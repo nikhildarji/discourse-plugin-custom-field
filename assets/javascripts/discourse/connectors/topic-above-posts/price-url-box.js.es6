@@ -33,10 +33,8 @@ export default {
       }).then((result) => {
 
         console.log(result);
-        topic.set('custom_fields.dcfg_price', result.dcfg_price);
         topic.set('dcfg_custom_fields.dcfg_price', result.dcfg_price);
 
-        topic.set('custom_fields.dcfg_url', result.dcfg_url);
         topic.set('dcfg_custom_fields.dcfg_url', result.dcfg_url);
   
   
