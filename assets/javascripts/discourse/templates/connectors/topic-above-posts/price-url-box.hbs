@@ -1,0 +1,31 @@
+<div style="display: none;width:100vw;" id="dcfgCustomFields">
+    <div style="font-weight:bold; border:1px outset;padding:10px;background:#fff" class="postPrice-priceTagPlugin">
+         Price: 
+         {{#if  model.dcfg_custom_fields.dcfg_price }} USD 
+            {{ model.dcfg_custom_fields.dcfg_price }} 
+            {{#if model.details.can_edit}}
+            {{d-button class="btn dcfgbtn" action="setPrice" actionParam=model translatedLabel="Edit"}}
+            {{/if}} 
+        {{else}}    
+            {{#if model.details.can_edit}}  
+            {{d-button class="btn dcfgbtn" action="setPrice" actionParam=model translatedLabel="Set price"}} 
+            {{/if}}
+        {{/if}}
+
+        <br/>
+        URL: 
+         {{#if  model.dcfg_custom_fields.dcfg_url }}
+            <a href="{{ model.dcfg_custom_fields.dcfg_url }}">{{ model.dcfg_custom_fields.dcfg_url }}</a>
+            {{#if currentUser.admin}}
+            {{d-button class="btn dcfgbtn" action="setURL" actionParam=model translatedLabel="Edit"}} 
+            {{/if}}
+        {{else}}   
+            {{#if model.details.can_edit}}
+            {{d-button class="btn dcfgbtn" action="setURL" actionParam=model translatedLabel="Set URL"}} 
+            {{/if}}
+        {{/if}} 
+    </div>
+</div>
+<style>
+    .dcfgbtn{margin-left:20px;margin:5px;}
+</style>
