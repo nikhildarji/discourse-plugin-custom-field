@@ -28,7 +28,7 @@ export default {
         window.onload  =function(){
             //fix localhost in urls, issues
             this.fix_localhost();
-            this.fix_dcfg_tags();
+            //this.fix_dcfg_tags();
 
             setTimeout(function() {
                 this.fix_localhost()
@@ -37,10 +37,9 @@ export default {
 
 
         withPluginApi('0.1', (api) => {
-            console.log(api.getCurrentUser());
             api.onPageChange(() => {
                console.log("Page changed")
-               setTimeout(this.fix_dcfg_tags,2000);
+               //setTimeout(this.fix_dcfg_tags,1000);
             });
         });
         
