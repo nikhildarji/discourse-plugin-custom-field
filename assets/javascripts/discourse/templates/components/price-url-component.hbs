@@ -16,18 +16,20 @@
         {{/if}}
 
         <br/>    
-        {{#if  model.dcfg_custom_fields.dcfg_url }}
+        {{#if showUrlBox}}
+        {{#if model.dcfg_custom_fields.dcfg_url}}
             URL: 
             <a href="{{ model.dcfg_custom_fields.dcfg_url }}">{{ model.dcfg_custom_fields.dcfg_url }}</a>
             {{#if currentUser.admin}}
             {{d-button class="btn dcfgbtn" action="setURL" actionParam=model translatedLabel="Edit"}} 
             {{/if}}
-        {{else}}   
+        {{else}}              
             {{#if model.details.can_edit}}
             URL:             
             {{d-button class="btn dcfgbtn" action="setURL" actionParam=model translatedLabel="Set URL"}} 
             {{/if}}
         {{/if}} 
+        {{/if}}
     </div>
     {{/if}}
 </div>

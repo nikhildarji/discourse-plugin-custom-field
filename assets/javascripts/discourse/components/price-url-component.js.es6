@@ -41,6 +41,19 @@ export default Ember.Component.extend({
     },
 
 
+    get showUrlBox(){
+        //return  model.dcfg_custom_fields.dcfg_url;
+        var userGroups = this.currentUser.groups;
+        for(var i=0; i< userGroups.length; i++){
+            var gname = userGroups[i].name.toLowerCase();
+            if(gname=="admins" || gname=="premium"){
+                return true;
+            }
+        }
+        return false;
+    },
+
+
     @action
     setPrice(topic) {
         bootbox.prompt("Enter price in USD", "Cancel", "Save", function (result) {

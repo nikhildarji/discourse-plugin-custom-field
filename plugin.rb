@@ -31,6 +31,25 @@ after_initialize do
         #Disables csrf protection
         skip_before_action :verify_authenticity_token
 
+        def set 
+            topic_id   = params.require(:topic_id)
+   
+
+            #Save topic
+            topic = Topic.find_by_id(topic_id)
+
+            if (defined? params[:price])
+                topic.custom_fields['dcfg_price'] =  params[:price]
+            end
+            if (defined? params[:url])
+                topic.custom_fields['dcfg_url'] =  params[:url]
+            end
+
+            topic.save!
+
+            render json: topic.custom_fields
+        end
+
         def update    
             topic_id   = params.require(:topic_id)
             key        = params.require(:key)
@@ -49,6 +68,7 @@ after_initialize do
 
     #Add custom routes
     DiscourseCustomFieldGenerator::Engine.routes.draw do
+        post "/setpriceandurl" => "field#set"
         post "/updatecustomfield" => "field#update"
     end
 
