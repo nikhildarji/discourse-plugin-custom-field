@@ -46,7 +46,7 @@ export default Ember.Component.extend({
         var userGroups = this.currentUser.groups;
         for(var i=0; i< userGroups.length; i++){
             var gname = userGroups[i].name.toLowerCase();
-            if(gname=="admins" || gname=="premium" ||  gname=="verified"){
+            if(gname=="admins" || gname=="premium" ||  gname=="verified" ||  gname=="staff"){
                 return true;
             }
         }
