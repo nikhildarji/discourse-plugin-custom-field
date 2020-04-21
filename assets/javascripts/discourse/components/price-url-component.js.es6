@@ -37,7 +37,7 @@ export default Ember.Component.extend({
     },
 
     get showPriceUrlBox(){
-        return this.model.dcfg_custom_fields.dcfg_price || this.model.details.can_edit;
+        return this.model.dcfg_custom_fields.dcfg_price || this.model.dcfg_custom_fields.dcfg_url;
     },
 
 
