@@ -6,9 +6,13 @@
     }
 </style>
 
-<div style="display: none;width:100vw; id="dcfgCustomFields">
+<div style="display: none;width:100vw;" id="dcfgCustomFields">
     
     {{#if showPriceUrlBox}}
+
+ {{#if model.dcfg_custom_fields.dcfg_url}}
+
+{{#if  model.dcfg_custom_fields.dcfg_price }}
     <div style="font-weight:bold; border:1px outset;padding:10px;background:#fff" class="postPrice-priceTagPlugin">        
          {{#if  model.dcfg_custom_fields.dcfg_price }} Price:  
             {{ model.dcfg_custom_fields.dcfg_price }} 
@@ -28,7 +32,7 @@
         {{#if model.dcfg_custom_fields.dcfg_url}}
             URL: 
             <a href="{{ model.dcfg_custom_fields.dcfg_url }}">{{ model.dcfg_custom_fields.dcfg_url }}</a>
-          {{#if model.details.can_edit}}  
+            {{#if currentUser.admin}}
             {{d-button class="btn dcfgbtn" action="setURL" actionParam=model translatedLabel="Edit"}} 
             {{/if}}
         {{else}}              
@@ -40,6 +44,9 @@
         {{/if}}
     </div>
     {{/if}}
+
+{{/if}}
+{{/if}}
 </div>
 <style>
     .dcfgbtn{margin-left:20px;margin:5px;}
